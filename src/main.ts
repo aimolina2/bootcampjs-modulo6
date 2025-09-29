@@ -1,5 +1,5 @@
-let puntuacion: number = 0;
-let mensaje: string = "";
+import { partida } from "./model";
+
 const dameCartaBoton = document.getElementById("dame-carta-button");
 const elementoPuntuacion = document.getElementById("puntuacion");
 const elementoImagen = document.getElementById("carta-img");
@@ -10,7 +10,7 @@ const futuroBoton = document.getElementById("futuro-button");
 
 const muestraPuntuacion = () => {
   if (elementoPuntuacion) {
-    elementoPuntuacion.innerHTML = puntuacion.toString();
+    elementoPuntuacion.innerHTML = partida.puntuacion.toString();
   } else {
     console.error("muestraPuntuacion: No se ha encontrado el id puntuacion");
   }
@@ -79,18 +79,18 @@ const obtenerPuntosCarta = (carta: number) => {
 };
 
 const sumarPuntosCarta = (puntosCarta: number) => {
-  return puntosCarta + puntuacion;
+  return puntosCarta + partida.puntuacion;
 };
 
-const actualizarPuntos = (puntosTotales: number) => {
-  puntuacion = puntosTotales;
+export const actualizarPuntos = (puntosTotales: number) => {
+  partida.puntuacion = puntosTotales;
 };
 
 const comprobarPartida = () => {
-  if (puntuacion === 7.5) {
+  if (partida.puntuacion === 7.5) {
     mostrarMensaje("¡Lo has clavado! ¡Enhorabuena! 🎉");
     activarModoNuevaPartida();
-  } else if (puntuacion > 7.5) {
+  } else if (partida.puntuacion > 7.5) {
     mostrarMensaje("☠️☠️☠️ GAME OVER Te has pasado ☠️☠️☠️");
     activarModoNuevaPartida();
   }
@@ -103,13 +103,13 @@ const mostrarMensaje = (mensaje: string) => {
 };
 
 const obtenerMensajeCuandoMePlanto = () => {
-  if (puntuacion <= 4) {
+  if (partida.puntuacion <= 4) {
     return "Has sido muy conservador";
   }
-  if (puntuacion === 5) {
+  if (partida.puntuacion === 5) {
     return "Te ha entrado el canguelo, eh? 😏";
   }
-  if (puntuacion === 6 || puntuacion === 7) {
+  if (partida.puntuacion === 6 || partida.puntuacion === 7) {
     return "Casi casi...";
   }
   return "Ups, algo ha fallado";
