@@ -6,6 +6,7 @@ import {
   obtenerPuntosCarta,
   sumarPuntosCarta,
   actualizarPuntos,
+  obtenerMensajeCuandoMePlanto,
 } from "./motor";
 
 import {
@@ -35,19 +36,6 @@ const comprobarPartida = () => {
     mostrarMensaje("☠️☠️☠️ GAME OVER Te has pasado ☠️☠️☠️");
     activarModoNuevaPartida();
   }
-};
-
-const obtenerMensajeCuandoMePlanto = () => {
-  if (partida.puntuacion <= 4) {
-    return "Has sido muy conservador";
-  }
-  if (partida.puntuacion === 5) {
-    return "Te ha entrado el canguelo, eh? 😏";
-  }
-  if (partida.puntuacion === 6 || partida.puntuacion === 7) {
-    return "Casi casi...";
-  }
-  return "Ups, algo ha fallado";
 };
 
 const mePlanto = () => {
