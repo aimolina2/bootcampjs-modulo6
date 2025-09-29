@@ -11,6 +11,12 @@ Pasos:
 
 ## 1. Modelo
 
+Incluimos en este fichero las constantes de base que vamos a utilizar para inicializar la partida. Datos y estructuras indispensables para poner en marcha el modelo.
+
+Al llevarnos `puntuacion`y `mensaje`a model.ts nos salta un error que solucionamos creando un `interface: Partida` donde definimos ambos parámetros. A continuación inicializamos los valores definiendo la `const partida: Partida`.
+
+En main.ts importamos `partida` y en aquellos lugares donde se llama a `puntuacion`y que ahora se marcan como error sustituimos por `partida.puntuacion`.
+
 ## 2. Motor
 
 ## 3. UI
