@@ -19,4 +19,8 @@ En main.ts importamos `partida` y en aquellos lugares donde se llama a `puntuaci
 
 ## 2. Motor
 
+Realizamos un import desde model.ts y nos llevamos aquellas funciones que desarrollan una lógica dentro del juego, como por ejemplo la generación del número aleatorio.
+
 ## 3. UI
+
+Aqui hacemos un import de model.ts y de motor.ts. Nos llevamos desde el main.ts las funciones que afectan al html, que realizan cambios en la interfaz del usuario.
