@@ -11,7 +11,7 @@ export const generarNumeroCarta = (numeroAleatorio: number): number => {
   }
 };
 
-export const obtenerUrlCarta = (carta: number) => {
+export const obtenerUrlCarta = (carta: number): string => {
   switch (carta) {
     case 1:
       return "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/1_as-copas.jpg";
@@ -47,29 +47,29 @@ export const obtenerUrlCarta = (carta: number) => {
   }
 };
 
-export const obtenerPuntosCarta = (carta: number) => {
+export const obtenerPuntosCarta = (carta: number): number => {
   if (carta > 7) {
     return 0.5;
   }
   return carta;
 };
 
-export const sumarPuntosCarta = (puntosCarta: number) => {
+export const sumarPuntosCarta = (puntosCarta: number): number => {
   return puntosCarta + partida.puntuacion;
 };
 
-export const actualizarPuntos = (puntosTotales: number) => {
+export const actualizarPuntos = (puntosTotales: number): void => {
   partida.puntuacion = puntosTotales;
 };
 
-export const obtenerMensajeCuandoMePlanto = () => {
+export const obtenerMensajeCuandoMePlanto = (): string => {
   if (partida.puntuacion <= 4) {
     return "Has sido muy conservador";
   }
   if (partida.puntuacion === 5) {
     return "Te ha entrado el canguelo, eh? 😏";
   }
-  if (partida.puntuacion === 6 || partida.puntuacion === 7) {
+  if (partida.puntuacion >= 6 || partida.puntuacion <= 7) {
     return "Casi casi...";
   }
   return "Ups, algo ha fallado";
